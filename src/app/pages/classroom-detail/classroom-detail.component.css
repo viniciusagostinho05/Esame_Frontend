@@ -1,0 +1,7 @@
+.assignment-clickable {
+  cursor: pointer;
+}
+
+.assignment-clickable:hover {
+  background-color: var(--bs-list-group-action-hover-bg, #f8f9fa);
+}

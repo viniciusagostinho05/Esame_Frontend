@@ -1,0 +1,20 @@
+:root {
+  --paper: #F2F1EC;
+  --ink: #20262B;
+  --ink-soft: #5B6168;
+  --accent: #2F4B7C;
+  --accent-dark: #233a60;
+  --rule: #C1443C;
+  --border: #DAD7CE;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'IBM Plex Sans', sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}

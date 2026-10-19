@@ -1,0 +1,83 @@
+.app-navbar {
+  background: var(--accent-dark);
+  border-bottom: 3px solid var(--rule);
+}
+
+.app-brand {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 20px;
+  color: var(--paper);
+}
+
+.app-nav-link {
+  color: rgba(242, 241, 236, 0.75) !important;
+  font-size: 15px;
+}
+
+.app-nav-link.active {
+  color: var(--paper) !important;
+  font-weight: 500;
+}
+
+.app-user-text {
+  color: rgba(242, 241, 236, 0.75);
+  font-size: 14px;
+}
+
+.app-role-badge {
+  display: inline-block;
+  margin-left: 6px;
+  padding: 2px 8px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  font-size: 12px;
+  color: var(--paper);
+}
+
+.app-role-badge--teacher {
+  background: rgba(193, 68, 60, 0.25);
+  border-color: rgba(193, 68, 60, 0.55);
+}
+
+.app-role-badge--student {
+  background: rgba(111, 162, 135, 0.25);
+  border-color: rgba(111, 162, 135, 0.55);
+}
+
+.app-btn {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-family: inherit;
+  text-decoration: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.app-btn--outline {
+  background: transparent;
+  color: var(--paper);
+  border: 1px solid rgba(242, 241, 236, 0.5);
+}
+
+.app-btn--outline:hover {
+  border-color: var(--paper);
+}
+
+.app-btn--solid {
+  background: var(--rule);
+  color: #fff;
+  border: 1px solid var(--rule);
+}
+
+.app-btn--solid:hover {
+  background: #a8382f;
+  border-color: #a8382f;
+}
+
+.navbar-toggler {
+  border-color: rgba(242, 241, 236, 0.5);
+}

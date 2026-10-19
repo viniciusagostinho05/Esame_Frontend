@@ -1,0 +1,53 @@
+@if (!hideOnThisPage()) {
+  <nav class="navbar navbar-expand-lg app-navbar px-3">
+    <div class="container-fluid">
+      <a class="navbar-brand app-brand" [routerLink]="['/classrooms']">Classroom</a>
+
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          @if (isAuthenticated()) {
+            <li class="nav-item">
+              <a class="nav-link app-nav-link" [routerLink]="['/classrooms']" routerLinkActive="active">Le mie classi</a>
+            </li>
+          }
+        </ul>
+
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          @if (isAuthenticated()) {
+            <li class="nav-item me-lg-3">
+              <span class="navbar-text app-user-text">
+              Ciao, {{ currentUser()?.fullName }}
+              <span class="app-role-badge"
+                    [class.app-role-badge--teacher]="currentUser()?.role === 'teacher'"
+                    [class.app-role-badge--student]="currentUser()?.role === 'student'">
+                {{ currentUser()?.role === 'teacher' ? 'Docente' : 'Studente' }}
+              </span>
+            </span>
+            </li>
+            <li class="nav-item">
+              <button class="app-btn app-btn--solid" (click)="logout()">Logout</button>
+          } @else {
+            <li class="nav-item me-2">
+              <a class="app-btn app-btn--outline" [routerLink]="['/register']">Registrati</a>
+            </li>
+            <li class="nav-item">
+              <a class="app-btn app-btn--solid" [routerLink]="['/login']">Login</a>
+            </li>
+          }
+        </ul>
+      </div>
+    </div>
+  </nav>
+}

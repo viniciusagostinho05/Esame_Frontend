@@ -1,0 +1,60 @@
+<div class="auth-page">
+  <div class="auth-card auth-card--wide">
+    <p class="auth-eyebrow">Classroom</p>
+    <h1 class="auth-title">Crea un account</h1>
+    <p class="auth-sub">Registrati come docente o come studente.</p>
+
+    <form [formGroup]="registerForm" (ngSubmit)="register()" class="auth-form">
+      <label class="field">
+        <span class="field-label">Email</span>
+        <input class="field-input" type="email" formControlName="username">
+      </label>
+
+      <label class="field">
+        <span class="field-label">Password</span>
+        <input class="field-input" type="password" formControlName="password">
+      </label>
+
+      <div class="field-row">
+        <label class="field">
+          <span class="field-label">Nome</span>
+          <input class="field-input" type="text" formControlName="firstName">
+        </label>
+
+        <label class="field">
+          <span class="field-label">Cognome</span>
+          <input class="field-input" type="text" formControlName="lastName">
+        </label>
+      </div>
+
+      <label class="field">
+        <span class="field-label">Url immagine profilo</span>
+        <input class="field-input" type="text" formControlName="picture" placeholder="https://...">
+      </label>
+
+      <div class="field">
+        <span class="field-label">Ruolo</span>
+        <div class="role-choice">
+          <label class="role-option">
+            <input type="radio" formControlName="role" value="student" id="roleStudent">
+            Studente
+          </label>
+          <label class="role-option">
+            <input type="radio" formControlName="role" value="teacher" id="roleTeacher">
+            Docente
+          </label>
+        </div>
+      </div>
+
+      @if (errorMessage()) {
+        <p class="auth-error">{{ errorMessage() }}</p>
+      }
+
+      <button [disabled]="registerForm.invalid" type="submit" class="auth-submit">
+        Registrati
+      </button>
+
+      <a routerLink="/login" class="auth-link">Hai già un account? Accedi</a>
+    </form>
+  </div>
+</div>

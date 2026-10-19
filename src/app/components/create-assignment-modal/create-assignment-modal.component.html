@@ -1,0 +1,19 @@
+<div class="modal-header">
+  <h5 class="modal-title">Nuova attività</h5>
+  <button type="button" class="btn-close" (click)="activeModal.dismiss()"></button>
+</div>
+
+<div class="modal-body">
+  <form [formGroup]="form">
+    <div class="mb-3">
+      <label class="form-label">Descrizione attività</label>
+      <input class="form-control" type="text" formControlName="title">
+    </div>
+    <div class="text-danger">{{ errorMessage() }}</div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss()">Annulla</button>
+  <button type="button" class="btn btn-primary" (click)="create()">Crea</button>
+</div>

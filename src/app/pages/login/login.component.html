@@ -1,0 +1,29 @@
+<div class="auth-page">
+  <div class="auth-card">
+    <p class="auth-eyebrow">Classroom</p>
+    <h1 class="auth-title">Bentornato</h1>
+    <p class="auth-sub">Accedi per vedere le tue classi e le attività.</p>
+
+    <form [formGroup]="loginForm" (ngSubmit)="login()" class="auth-form">
+      <label class="field">
+        <span class="field-label">Email</span>
+        <input class="field-input" type="text" formControlName="username">
+      </label>
+
+      <label class="field">
+        <span class="field-label">Password</span>
+        <input class="field-input" type="password" formControlName="password">
+      </label>
+
+      @if (errorMessage()) {
+        <p class="auth-error">{{ errorMessage() }}</p>
+      }
+
+      <button [disabled]="loginForm.invalid" type="submit" class="auth-submit">
+        Accedi
+      </button>
+
+      <a routerLink="/register" class="auth-link">Non hai un account? Registrati</a>
+    </form>
+  </div>
+</div>

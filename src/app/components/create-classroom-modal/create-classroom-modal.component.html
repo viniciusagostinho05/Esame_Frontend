@@ -1,0 +1,43 @@
+<div class="modal-header">
+  <h5 class="modal-title">Nuova classe</h5>
+  <button type="button" class="btn-close" (click)="activeModal.dismiss()"></button>
+</div>
+
+<div class="modal-body">
+  <form [formGroup]="form">
+    <div class="mb-3">
+      <label class="form-label">Nome classe</label>
+      <input class="form-control" type="text" formControlName="name">
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label d-block">Studenti</label>
+
+      @if (students().length === 0) {
+        <p class="text-muted">Nessuno studente registrato.</p>
+      } @else {
+        @for (student of students(); track student.id) {
+          <div class="form-check">
+            <input
+              class="form-check-input"
+              type="checkbox"
+              [id]="'student-' + student.id"
+              [checked]="isSelected(student.id)"
+              (change)="toggleStudent(student.id, $any($event.target).checked)"
+            >
+            <label class="form-check-label" [for]="'student-' + student.id">
+              {{ student.fullName }}
+            </label>
+          </div>
+        }
+      }
+    </div>
+
+    <div class="text-danger">{{ errorMessage() }}</div>
+  </form>
+</div>
+
+<div class="modal-footer">
+  <button type="button" class="btn btn-secondary" (click)="activeModal.dismiss()">Annulla</button>
+  <button type="button" class="btn btn-primary" (click)="create()">Crea classe</button>
+</div>
